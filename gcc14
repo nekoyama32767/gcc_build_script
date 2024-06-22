@@ -1,0 +1,31 @@
+#%Module1.0
+
+conflict gcc
+conflict g++
+
+set module_root      /build/gcc14/gcc
+set ver              14.1.0
+
+setenv GCC_ROOT ${module_root}
+setenv CC    gcc
+setenv CXX   g++
+setenv FC    gfortran
+
+prepend-path PATH            ${module_root}/bin
+prepend-path LD_LIBRARY_PATH ${module_root}/lib
+prepend-path LD_LIBRARY_PATH ${module_root}/lib64
+prepend-path LIBRARY_PATH    ${module_root}/lib
+prepend-path LIBRARY_PATH    ${module_root}/lib64
+prepend-path CPATH           ${module_root}/include
+prepend-path MANPATH         ${module_root}/share/man
+
+set module_description "GNU Compiler Collection ${ver}"
+
+module-whatis    $module_description
+
+proc ModulesHelp { } {
+    global set module_description
+    puts stderr "
+        $module_description
+    "
+}
