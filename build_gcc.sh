@@ -13,7 +13,7 @@ cd ~/gcc_build
 gmp_ver="6.3.0"
 mpfr_ver="4.2.2"
 mpc_ver="1.3.1"
-gcc_ver="14.1.0"
+gcc_ver="15.1.0"
 gcc_dir="gcc14"
 
 if ! [ -f gmp-$gmp_ver.tar.xz ];  then
