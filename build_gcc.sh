@@ -11,7 +11,7 @@ fi
 cd ~/gcc_build
 
 gmp_ver="6.3.0"
-mpfr_ver="4.2.1"
+mpfr_ver="4.2.2"
 mpc_ver="1.3.1"
 gcc_ver="14.1.0"
 gcc_dir="gcc14"
@@ -24,7 +24,7 @@ cd gmp-$gmp_ver
 mkdir build
 cd build
 ../configure --prefix=/build/$gcc_dir/gmp --enable-cxx
-make -j32
+make -j
 make install
 cd ~/gcc_build
 
@@ -37,7 +37,7 @@ cd mpfr-$mpfr_ver
 mkdir build
 cd build
 ../configure --prefix=/build/$gcc_dir/mpfr --with-gmp=/build/$gcc_dir/gmp
-make -j32
+make -j
 make install
 cd ~/gcc_build
 
@@ -51,7 +51,7 @@ cd mpc-$mpc_ver
 mkdir build
 cd build
 ../configure --prefix=/build/$gcc_dir/mpc --with-gmp=/build/$gcc_dir/gmp --with-mpfr=/build/$gcc_dir/mpfr
-make -j32
+make -j
 make install
 cd ~/gcc_build
 
@@ -66,5 +66,5 @@ mkdir build
 cd build
 unset LIBRARY_PATH CPATH C_INCLUDE_PATH PKG_CONFIG_PATH CPLUS_INCLUDE_PATH INCLUDE
 ../configure --prefix=/build/$gcc_dir/gcc --enable-languages=c,c++,fortran --disable-multilib --disable-bootstrap --with-gmp=/build/$gcc_dir/gmp --with-mpfr=/build/$gcc_dir/mpfr --with-mpc=/build/$gcc_dir/mpc
-make -j32
+make -j
 make install
